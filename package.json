@@ -8,12 +8,22 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
-    "atom-package-deps": "^4.0.0"
+    "atom-package-deps": "^4.0.0",
+    "process": "^0.11.0"
+  },
+  "devDependencies": {
+    "flow-atom-api": "https://github.com/flow-atom/flow-atom-api.git"
   },
   "package-deps": [
     "debugger"
   ],
-
+  "consumedServices": {
+    "debugger-event-defs": {
+      "versions": {
+        "^0.1.0": "consumeEventDefs"
+      }
+    }
+  },
   "providedServices": {
     "debugger": {
       "versions": {
