@@ -54,9 +54,33 @@ declare module 'debugger' {
       executionLine?: ExecutionLine): void;
   }
 
+  declare type TargetEventType = 'output'
+
+  declare class TargetEvent {
+    type: TargetEventType;
+    message: string;
+
+    constructor(type: TargetEventType, message: string): void;
+  }
+
   declare interface EventDefs {
     BreakpointEvent: BreakpointEvent;
-    SessionEvent: SessionEvent;
+    SessionEvent:    SessionEvent;
+    TargetEvent:     TargetEvent;
+  }
+
+  declare type StackFrame = {
+    level: number,
+    address: string,
+    function: string,
+    filePath: string,
+    bufferRow: number
+  }
+
+  declare type Variable = {
+    name: string,
+    value: string,
+    type: ?string
   }
 
   declare interface DebuggerTarget  {
