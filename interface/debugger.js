@@ -63,10 +63,20 @@ declare module 'debugger' {
     constructor(type: TargetEventType, message: string): void;
   }
 
+  declare type VariableEventType = 'updated' | 'left-scope' | 'entered-scope'
+
+  declare class VariableEvent {
+    type:     VariableEventType;
+    variable: Variable;
+
+    constructor(type: VariableEventType, variable: Variable): void;
+  }
+
   declare interface EventDefs {
     BreakpointEvent: BreakpointEvent;
     SessionEvent:    SessionEvent;
     TargetEvent:     TargetEvent;
+    VariableEvent:   VariableEvent;
   }
 
   declare type StackFrame = {
